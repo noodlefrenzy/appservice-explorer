@@ -1,3 +1,4 @@
+from flask import Flask
 import os
 import socket
 import sys
@@ -26,8 +27,16 @@ def write_entry(table_settings, entry):
 def write_msg(table_settings, msg):
     write_entry(table_settings, { 'details': msg })
 
+app = Flask(__name__)
+
+@app.route("/")
+def hello():
+    return "Hello World!"
+
 if __name__ == '__main__':
     table_settings = init_table()
     write_msg('Python version: %s' % sys.version)
+    app.run()
+
 
 

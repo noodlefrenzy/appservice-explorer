@@ -21,4 +21,5 @@ https://pypi.binstar.org/carlkl/simple/numpy/1.9.2/numpy-1.9.2-cp34-none-win32.w
 oauthlib==1.0.3
 requests-oauthlib==0.5.0
 twython
-langid
+flask
+#langid
