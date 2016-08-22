@@ -35,7 +35,7 @@ def hello():
 
 if __name__ == '__main__':
     table_settings = init_table()
-    write_msg('Python version: %s' % sys.version)
+    write_msg(table_settings, 'Python version: %s' % sys.version)
     app.run()
 
 
