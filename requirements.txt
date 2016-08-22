@@ -1,3 +1,4 @@
+applicationinsights
 azure==1.0.2
 azure-common==1.0.0
 azure-mgmt==0.20.1

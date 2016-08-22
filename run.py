@@ -1,3 +1,4 @@
+from applicationinsights import TelemetryClient
 from flask import Flask
 import os
 import socket
@@ -34,9 +35,12 @@ def hello():
     return "Hello World!"
 
 if __name__ == '__main__':
-    table_settings = init_table()
-    write_msg(table_settings, 'Python version: %s' % sys.version)
+    tc = TelemetryClient()
+    tc.context.instrumentationKey = os.environ['APPINSIGHTS_KEY']
+    try:
+        table_settings = init_table()
+        write_msg(table_settings, 'Python version: %s' % sys.version)
+    except Exception as e:
+        print(e)
+        tc.trackException(e, {"foo": "bar"}, {"x": 42})
     app.run()
-
-
-
